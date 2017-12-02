@@ -52,7 +52,7 @@ truncation = 23
 
 # FourPnt = 8
 N2iwb = 4000 # bosonic frequencies for P2
-N3iwf = 400	 # fermionic frequencies for P3
+N3iwf = 400  # fermionic frequencies for P3
 N3iwb = 400  # bosonic frequencies for P3
 
 #### ASYMPTOTICS SETTINGS
