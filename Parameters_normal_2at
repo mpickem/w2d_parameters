@@ -1,0 +1,54 @@
+[General]
+HkFile = SVO_k20.hk 		# Hamiltonian file in usual format
+DOS = ReadIn 						#
+NAt = 2 								# number of atoms
+beta = 38.0 						# inverse temperature
+totdens = 1.0 					# number of electrons we want
+EPSN = 1e-10 						# threshold for root finding of mu
+readold = -1 						# dmft step from which we want to continue
+fileold = srvo3-run3-2017-12-01-Fri-17-18-49.hdf5
+DMFTsteps = 10 					# number of DMFT iterations
+StatisticSteps = 0 			# similar to DMFT iterations ... not really necessary
+FileNamePrefix = srvo4  # self explanatory
+magnetism = para 				# self explanatory
+EPSEQ = 0.02 						# epsilon for identical atom in unit cell
+mixing = 0.5 						# mixing of old self-energy for better convergence
+mu_mixing = 0 					# mixing of old chemical potential for better convergence
+
+FFType = legendre       # FourierTransform from gtau -> giw
+                        # usually results in strange giw tails due to the method
+                        # to deactivate this: none, plain
+
+[Atoms]
+[[1]]
+Hamiltonian = Kanamori	# interaction type
+Nd = 3									# number of d bands
+Udd = 5.0								# the usual d-d interaction values
+Jdd = 0.75
+Vdd = 3.5
+[[2]]
+Hamiltonian = Kanamori	# interaction type
+Nd = 3									# number of d bands
+Np = 2                  # number of p bands
+Udd = 5.0								# the usual d-d interaction values
+Jdd = 0.75
+Vdd = 3.5
+Upp = 1.0               # possible p-p interaction values
+
+[QMC]
+segment = 0             # segment method only works for density density interactions
+                        # faster than the normal mode
+Eigenbasis = 1
+Nice_SelfEnergy = 1
+MeasSusz = 0
+Nwarmups = 1e5          # warmup steps in order to be around an equilibrium of our system
+Nmeas = 2e5             # measurement steps
+NCorr = 1000            # correlation steps to get a new configuration
+                        # the whole thing scales therfore with
+                        # Nwarmups + Nmeas*Ncorr
+                        # choose Ncorr according to (max(hist) / accept-ins * dim_impurity)
+NLegOrder = 100
+Ntau = 1000             # number of values on the tau axis
+Niw = 2000              # number of matsubara frequencies in the positive direction
+truncation = 13         # number of energy levels before truncation
+                        # extract this value by starting a calculation with this value set to 99999

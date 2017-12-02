@@ -1,0 +1,68 @@
+[General]
+HkFile          = 2SVO_t2g.hk
+DOS = ReadIn
+NAt = 2
+beta = 38.0
+totdens = 1.0
+
+#### calculate with fixated mu
+mu = -0.218534
+EPSN = 0
+####
+
+readold = -1
+fileold = svo2-run03-wormmeas-full-2017-11-06-Mon-13-55-47.hdf5
+
+###### 2PG WORM SETTINGS
+DMFTsteps = 0
+StatisticSteps = 0
+WormSteps = 1
+######
+
+FileNamePrefix = svo2-2PG-u50
+magnetism = para
+EPSEQ = 0
+mixing = 0.5
+mu_mixing = 0
+siw_moments = estimate
+
+[Atoms]
+[[1]]
+Hamiltonian = Kanamori
+Nd = 3
+Udd = 5.0
+Jdd = 0.75
+Vdd = 3.5
+
+[[2]]
+Hamiltonian = Kanamori
+Nd = 3
+Udd = 5.0
+Jdd = 0.75
+Vdd = 3.5
+
+[QMC]
+Eigenbasis = 1
+Nice_SelfEnergy = 1
+MeasSusz = 0
+Nwarmups = 1e6
+Nmeas = 50000
+NCorr = 1000
+NLegOrder = 100
+Ntau = 1000
+Niw = 2000
+truncation = 23
+
+###### 2PG WORM SETTINGS
+FourPnt = 8
+N4iwf=60
+N4iwb=60
+
+PercentageWormInsert=0.3
+PercentageWormReplace=0.1
+WormSearchEta=1
+WormEta=1.0
+WormMeasG4iw=1
+WormMeasGiw=1
+WormPHConvention=1
+######

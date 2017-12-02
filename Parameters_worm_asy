@@ -1,0 +1,71 @@
+[General]
+HkFile          = 2SVO_t2g.hk
+DOS = ReadIn
+NAt = 2
+beta = 38.0
+totdens = 1.0
+mu = -0.218534
+EPSN = 0
+readold = -1
+fileold = svo2-run03-wormmeas-full-2017-11-06-Mon-13-55-47.hdf5
+
+#### SAME AS IN 2PG Worm
+DMFTsteps = 0
+StatisticSteps = 0
+WormSteps = 1
+####
+
+FileNamePrefix = svo2-asymptotics-p2-ph
+magnetism = para
+EPSEQ = 0
+mixing = 0.5
+mu_mixing = 0
+dc = anisimov
+siw_moments = estimate
+
+[Atoms]
+[[1]]
+Hamiltonian = Kanamori
+Nd = 3
+Udd = 5.0
+Jdd = 0.75
+Vdd = 3.5
+
+[[2]]
+Hamiltonian = Kanamori
+Nd = 3
+Udd = 5.0
+Jdd = 0.75
+Vdd = 3.5
+
+[QMC]
+Eigenbasis = 1
+Nice_SelfEnergy = 1
+MeasSusz = 0
+Nwarmups = 1e6
+Nmeas = 150000
+NCorr = 100
+NLegOrder = 100
+Ntau = 1000
+Niw = 2000
+truncation = 23
+
+# FourPnt = 8
+N2iwb = 4000 # bosonic frequencies for P2
+N3iwf = 400	 # fermionic frequencies for P3
+N3iwb = 400  # bosonic frequencies for P3
+
+#### ASYMPTOTICS SETTINGS
+PercentageWormInsert=0.3
+PercentageWormReplace=0.1
+WormSearchEta=1
+WormEta=1.0
+WormPHConvention=1
+
+
+# we need all four of these -- usually run 4 independent parameters
+WormMeasP2iwPH = 1
+# WormMeasP2iwPP = 1
+# WormMeasP3iwPH = 1
+# WormMeasP3iwPP = 1
+####

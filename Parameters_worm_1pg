@@ -1,0 +1,61 @@
+[General]
+HkFile = 2SVO_t2g.hk
+DOS = ReadIn
+NAt = 2
+beta = 38.0
+totdens = 1.0
+EPSN = 0
+mu = -0.218534
+readold = -1
+fileold = svo2-run03-wormmeas-cont-2017-11-01-Wed-14-52-42.hdf5
+DMFTsteps = 1
+StatisticSteps = 0
+FileNamePrefix = svo2-run03-wormmeas-full
+magnetism = para
+EPSEQ = 0.02
+mixing = 0.5
+mu_mixing = 0
+
+###### WORM SETTINGS HERE
+siw_moments = estimate        # siw moments -> Sigma_0 + Sigma_1 / i(nu) + ...
+SelfEnergy = improved_worm
+FTType = none_worm
+######
+
+[Atoms]
+[[1]]
+Hamiltonian = Kanamori
+Nd = 3
+Udd = 5.0
+Jdd = 0.75
+Vdd = 3.5
+[[2]]
+Hamiltonian = Kanamori
+Nd = 3
+Udd = 5.0
+Jdd = 0.75
+Vdd = 3.5
+
+[QMC]
+Eigenbasis = 1
+MeasSusz = 0
+Nwarmups = 1e7
+Nmeas = 1e6
+NCorr = 1000
+NLegOrder = 100
+Ntau = 2000
+Niw = 2000
+truncation = 23
+
+###### WORM SETTINGS HERE
+PercentageWormInsert = 0.3    # insertion parameter
+PercentageWormReplace = 0.1   # replacement parameter
+WormMeasGtau = 1
+WormMeasGiw = 1
+WormMeasGSigmaiw = 1
+WormPHConvention = 1          # 0 --> w relates to operators 1 and 4 (Georg)
+                              # 1 --> w relates to operators 2 and 3 (ADGA)
+
+WormSearchEta=1
+WormEta=1.0
+######
